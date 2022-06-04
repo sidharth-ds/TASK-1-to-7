@@ -72,17 +72,22 @@ Task-1:
 
 1) Write an SQL query to fetch “FIRST_NAME” from Worker table using the alias name as <WORKER_NAME>.
 
-Select FIRST_NAME AS WORKER_NAME from Worker;
+Select FIRST_NAME AS WORKER_NAME 
+from Worker;
 
 2) Write an SQL query to fetch unique values of DEPARTMENT from the Worker table.
 
-Select distinct DEPARTMENT from Worker;
+Select distinct DEPARTMENT 
+from Worker;
 
 3) Write an SQL query to show the last 5 records from a table.
 
-SELECT * FROM Worker WHERE WORKER_ID <=5
+SELECT * FROM Worker 
+WHERE WORKER_ID <=5
 UNION
-SELECT * FROM (SELECT * FROM Worker W order by W.WORKER_ID DESC) AS W1 WHERE W1.WORKER_ID <=5;
+SELECT * FROM
+	(SELECT * FROM Worker W order by W.WORKER_ID DESC) AS W1 
+	WHERE W1.WORKER_ID <=5;
 
 
 
@@ -92,11 +97,13 @@ Task-2:
 
 1) Write an SQL query to print the first three characters of FIRST_NAME from Worker
 
-Select substring(FIRST_NAME,1,3) from Worker;
+Select substring(FIRST_NAME,1,3) 
+from Worker;
 
 2) Write an SQL query to find the position of the alphabet (‘a’) in the first name
 
-Select INSTR(FIRST_NAME, BINARY'a') from Worker;
+Select INSTR(FIRST_NAME, BINARY'a') 
+from Worker;
 
 3) Write an SQL query to print the name of employees who have the highest salary in each department.
 
@@ -111,15 +118,20 @@ Task-3:
 
 1) Write an SQL query to print the FIRST_NAME from the Worker table after removing white spaces from the right side.
 
-Select RTRIM(FIRST_NAME) from Worker;
+Select RTRIM(FIRST_NAME) 
+from Worker;
 
 2) Write an SQL query that fetches the unique values of DEPARTMENT from the Worker table and prints its length.
 
-Select distinct length(DEPARTMENT) from Worker;
+Select distinct length(DEPARTMENT) 
+from Worker;
 
 3) Write an SQL query to fetch nth max salaries from a table.
 
-SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+SELECT Salary 
+FROM Worker 
+ORDER BY Salary DESC 
+LIMIT n-1,1;
 
 
 
@@ -129,15 +141,19 @@ Task-4:
 
 1) Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
 
-Select REPLACE(FIRST_NAME,'a','A') from Worker;
+Select REPLACE(FIRST_NAME,'a','A') 
+from Worker;
 
 2) Write an SQL query to print all Worker details from the Worker table order FIRST_NAME Ascending and DEPARTMENT Descending.
 
-Select * from Worker order by FIRST_NAME asc,DEPARTMENT desc;
+Select * from Worker 
+order by FIRST_NAME asc,DEPARTMENT desc;
 
 3) Write an SQL query to fetch the names of workers who earn the highest salary.
 
-SELECT FIRST_NAME, SALARY from Worker WHERE SALARY=(SELECT max(SALARY) from Worker);
+SELECT FIRST_NAME, SALARY 
+from Worker 
+WHERE SALARY=(SELECT max(SALARY) from Worker);
 
 
 
@@ -146,12 +162,14 @@ Task-5:
 
 1) Write an SQL query to print details of workers excluding first names, “Ramesh” and “Santhosh” from the Worker table.
 
-Select * from Worker where FIRST_NAME not in ('Ramesh','Santhosh');
+Select * from Worker 
+where FIRST_NAME not in ('Ramesh','Santhosh');
 
 
 2) Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
 
-Select * from Worker where FIRST_NAME like '_____h';
+Select * from Worker 
+where FIRST_NAME like '_____h';
 
 3) Write a query to validate Email of Employee (email should have first name last name and guvi.com example (first name=Kamal last name= raja and the mail id should be kamalraja@guvi.com).
 
@@ -162,7 +180,8 @@ Task-6:
 
 1) Write an SQL query to print details of the Workers who have joined in March ’2021.
 
-Select * from Worker where year(JOINING_DATE) = 2021 and month(JOINING_DATE) = 3;
+Select * from Worker 
+where year(JOINING_DATE) = 2021 and month(JOINING_DATE) = 3;
 
 2) Write an SQL query to fetch duplicates that have matching data in some fields of a table.
 
@@ -173,7 +192,11 @@ HAVING COUNT(*) > 1;
 
 3) How to remove duplicate rows from the Employees table.
 
-
+SELECT WORKER_ID, COUNT(WORKER_ID)  
+FROM Worker  
+GROUP BY WORKER_ID  
+HAVING  
+COUNT (WORKER_ID) > 1;  
 
 
 
@@ -181,11 +204,13 @@ Task-7:
 
 1) Write an SQL query to show only odd rows from a table.
 
-SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) <> 0;
+SELECT * FROM Worker 
+WHERE MOD (WORKER_ID, 2) <> 0;
 
 2) Write an SQL query to clone a new table from another table.
 
-SELECT * INTO WorkerClone FROM Worker;
+SELECT * INTO WorkerClone 
+FROM Worker;
 
 
 
@@ -213,11 +238,16 @@ Task-9:
 
 1) Write an SQL query to show the top n (say 15) records of a table.
 
-SELECT * FROM Worker ORDER BY Salary DESC LIMIT 15;
+SELECT * FROM Worker 
+ORDER BY Salary DESC 
+LIMIT 15;
 
 2) Write an SQL query to determine the nth (say n=10) highest salary from a table.
 
-SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+SELECT Salary 
+FROM Worker 
+ORDER BY Salary DESC 
+LIMIT n-1,1;
 
 
 
