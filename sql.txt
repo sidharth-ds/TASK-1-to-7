@@ -1,0 +1,251 @@
+CREATE DATABASE WORKER;
+SHOW DATABASES;
+USE WORKER;
+
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+        );
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Aadarshini', 'Deeraj', 100000, '14-02-21', 'HR'),
+		(002, 'Aadhya', 'Verma', 80000, '14-06-11', 'Admin'),
+		(003, 'Vishal', 'Deepesh', 300000, '14-02-22', 'HR'),
+		(004, 'Aahna', 'Singh', 500000, '14-02-20', 'Admin'),
+		(005, 'Vivek', 'Desikan', 500000, '14-06-13', 'Admin'),
+		(006, 'Abilasha', 'Diwan', 200000, '14-06-14', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20', 'Account'),
+		(008, 'Bhanupriya', 'Chauhan', 90000, '14-04-11', 'Admin'),
+		(009, 'Bhairavi', 'Dhanush', 100000, '14-02-21', 'HR'),
+		(010, 'Monika', 'Deivigan', 80000, '14-02-21', 'HR'),
+		(011, 'Akshara', 'Duraivel', 100000, '14-02-22', 'Admin'),
+		(012, 'Anasuya', 'Eegan', 300000, '14-02-22', 'HR'),
+		(013, 'Cavery', 'Eashan', 75000, '14-02-21', 'HR'),
+		(014, 'Chitra', 'Eniyan', 80000, '14-02-19', 'Admin'),
+		(015, 'Devi', 'Evyavan', 500000, '14-02-19', 'Account'),
+		(016, 'Dipti', 'Ezhilarasan', 300000, '14-02-22', 'HR'),
+		(017, 'Deesha', 'Giri', 80000, '14-02-17', 'Admin'),
+		(018, 'Ezhil', 'Guhan', 75000, '14-02-18', 'HR'),
+		(019, 'Elakya', 'Hanish', 300000, '14-02-16', 'Account'),
+		(020, 'Eswari', 'Hardik', 100000, '14-02-15', 'Account'),
+		(021, 'Gita', 'Harshavardhan', 80000, '14-02-14', 'HR'),
+		(022, 'Gitika', 'Hemant', 100000, '14-02-15', 'Admin'),
+		(023, 'Gautami', 'Ilaiyaraja', 300000, '14-02-16', 'Admin'),
+		(024, 'Gayathri', 'Kasi', 500000, '14-02-20', 'Admin'),
+		(025, 'Girija', 'Maniyan', 100000, '14-02-20', 'HR'),
+		(026, 'Harita', 'Jagan', 80000, '14-02-22', 'HR'),
+		(027, 'Iniya', 'Kumar', 100000, '14-02-21', 'Account'),
+		(028, 'Jaya', 'Maniyan', 300000, '14-02-21', 'HR'),
+		(029, 'Jyotibala', 'Ulagan', 100000, '14-02-20', 'HR'),
+		(030, 'Kriti', 'Ilaiyaraja', 300000, '14-02-22', 'Account'),
+		(031, 'Lalitha', 'Lalit', 80000, '14-02-20', 'Admin'),
+		(032, 'Madhi', 'Uthaman', 75000, '14-02-20', 'Admin'),
+		(033, 'Niravi', 'Kumar', 300000, '14-02-11', 'Admin'),
+		(034, 'Rithya', 'Kasi', 500000, '14-02-11', 'HR'),
+		(035, 'Oviya', 'Jagan', 80000, '14-02-12', 'HR'),
+		(036, 'Venba', 'Kumar', 100000, '14-02-12', 'Admin'),
+		(037, 'Urmika', 'Lalit', 300000, '14-02-14', 'HR'),
+		(038, 'Vennila', 'Jagan', 100000, '14-02-15', 'Account'),
+		(039, 'Advait', 'Vasu', 80000, '14-02-13', 'Admin'),
+		(040, 'Aadavan', 'Maniyan', 100000, '14-02-17', 'Admin'),
+		(041, 'Arnish', 'Kumar', 500000, '14-02-17', 'Admin'),
+		(042, 'Arnoh', 'Uthaman', 300000, '14-02-20', 'HR'),
+		(043, 'Ajai', 'Kumar', 80000, '14-02-21', 'Account'),
+		(044, 'Akil', 'Vasu', 100000, '14-02-21', 'Account'),
+		(045, 'Balan', 'Maniyan', 300000, '14-02-21', 'HR'),
+		(046, 'Bhadra', 'Kumar', 500000, '14-02-21', 'Admin'),
+		(047, 'Chandra', 'Ulagan', 80000, '14-02-20', 'Admin'),
+		(048, 'Charan', 'Lalit', 100000, '14-02-11', 'HR'),
+		(049, 'Chaitan', 'Kumar', 300000, '14-02-20', 'Account'),
+		(050, 'Deva', 'Kasi', 100000, '14-02-21', 'HR');
+
+
+
+
+
+Task-1:
+
+1) Write an SQL query to fetch “FIRST_NAME” from Worker table using the alias name as <WORKER_NAME>.
+
+Select FIRST_NAME AS WORKER_NAME from Worker;
+
+2) Write an SQL query to fetch unique values of DEPARTMENT from the Worker table.
+
+Select distinct DEPARTMENT from Worker;
+
+3) Write an SQL query to show the last 5 records from a table.
+
+SELECT * FROM Worker WHERE WORKER_ID <=5
+UNION
+SELECT * FROM (SELECT * FROM Worker W order by W.WORKER_ID DESC) AS W1 WHERE W1.WORKER_ID <=5;
+
+
+
+
+
+Task-2:
+
+1) Write an SQL query to print the first three characters of FIRST_NAME from Worker
+
+Select substring(FIRST_NAME,1,3) from Worker;
+
+2) Write an SQL query to find the position of the alphabet (‘a’) in the first name
+
+Select INSTR(FIRST_NAME, BINARY'a') from Worker;
+
+3) Write an SQL query to print the name of employees who have the highest salary in each department.
+
+SELECT t.DEPARTMENT,t.FIRST_NAME,t.Salary from(SELECT max(Salary) as TotalSalary,DEPARTMENT from Worker group by DEPARTMENT) as TempNew 
+Inner Join Worker t on TempNew.DEPARTMENT=t.DEPARTMENT 
+ and TempNew.TotalSalary=t.Salary;
+
+
+
+
+Task-3:
+
+1) Write an SQL query to print the FIRST_NAME from the Worker table after removing white spaces from the right side.
+
+Select RTRIM(FIRST_NAME) from Worker;
+
+2) Write an SQL query that fetches the unique values of DEPARTMENT from the Worker table and prints its length.
+
+Select distinct length(DEPARTMENT) from Worker;
+
+3) Write an SQL query to fetch nth max salaries from a table.
+
+SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+
+
+
+
+
+Task-4:
+
+1) Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
+
+Select REPLACE(FIRST_NAME,'a','A') from Worker;
+
+2) Write an SQL query to print all Worker details from the Worker table order FIRST_NAME Ascending and DEPARTMENT Descending.
+
+Select * from Worker order by FIRST_NAME asc,DEPARTMENT desc;
+
+3) Write an SQL query to fetch the names of workers who earn the highest salary.
+
+SELECT FIRST_NAME, SALARY from Worker WHERE SALARY=(SELECT max(SALARY) from Worker);
+
+
+
+
+Task-5:
+
+1) Write an SQL query to print details of workers excluding first names, “Ramesh” and “Santhosh” from the Worker table.
+
+Select * from Worker where FIRST_NAME not in ('Ramesh','Santhosh');
+
+
+2) Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+
+Select * from Worker where FIRST_NAME like '_____h';
+
+3) Write a query to validate Email of Employee (email should have first name last name and guvi.com example (first name=Kamal last name= raja and the mail id should be kamalraja@guvi.com).
+
+
+
+
+Task-6:
+
+1) Write an SQL query to print details of the Workers who have joined in March ’2021.
+
+Select * from Worker where year(JOINING_DATE) = 2021 and month(JOINING_DATE) = 3;
+
+2) Write an SQL query to fetch duplicates that have matching data in some fields of a table.
+
+SELECT WORKER_TITLE, AFFECTED_FROM, COUNT(*)
+FROM Title
+GROUP BY WORKER_TITLE, AFFECTED_FROM
+HAVING COUNT(*) > 1;
+
+3) How to remove duplicate rows from the Employees table.
+
+
+
+
+
+Task-7:
+
+1) Write an SQL query to show only odd rows from a table.
+
+SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) <> 0;
+
+2) Write an SQL query to clone a new table from another table.
+
+SELECT * INTO WorkerClone FROM Worker;
+
+
+
+
+
+Task-8:
+
+1) Write an SQL query to fetch intersecting records of two tables.
+
+(SELECT * FROM Worker)
+INTERSECT
+(SELECT * FROM WorkerClone);
+
+2) Write an SQL query to show records from one table that another table does not have.
+
+SELECT * FROM Worker
+MINUS
+SELECT * FROM Title;
+
+
+
+
+
+Task-9:
+
+1) Write an SQL query to show the top n (say 15) records of a table.
+
+SELECT * FROM Worker ORDER BY Salary DESC LIMIT 15;
+
+2) Write an SQL query to determine the nth (say n=10) highest salary from a table.
+
+SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+
+
+
+
+
+Task-10:
+
+1) Write an SQL query to determine the 8th highest salary without using TOP or LIMIT methods.
+
+SELECT Salary
+FROM Worker W1
+WHERE 7 = (
+ SELECT COUNT( DISTINCT ( W2.Salary ) )
+ FROM Worker W2
+ WHERE W2.Salary >= W1.Salary
+ );
+
+2) Write an SQL query to fetch the list of employees with the same salary
+
+Select distinct W.WORKER_ID, W.FIRST_NAME, W.Salary 
+from Worker W, Worker W1 
+where W.Salary = W1.Salary 
+and W.WORKER_ID != W1.WORKER_ID;
+
+
+
+
+
+
+
+
